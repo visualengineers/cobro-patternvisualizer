@@ -1,5 +1,6 @@
 :root{
     font-family: 'Roboto', sans-serif;
+    --thumbnail: url();
 }
 
 body{
@@ -66,7 +67,16 @@ h1{
     background-color: #3B5F5B;
 }
 
-.black{
+.img{
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-image: var(--thumbnail);
+    width: 320px;
+    height: 180px;
+}
+
+.black {
     background-color: black;
 }
 
