@@ -71,10 +71,10 @@ function load_project_details(projectid){
 
         console.log("id: " + d.id)
 
-        var url1 =  host + ":" + port + "/cobro-data/projects/" + d.id + "/pic1.png"
+        var url1 =  host + ":" + port + "/cobro-data/projects/" + d.id + "/pic1.png" //
 
-        console.log("titel: " + d.titel)
-        document.getElementById('title').innerHTML = d.titel
+        console.log("title: " + d.title)
+        document.getElementById('title').innerHTML = d.title
 
         console.log("constructionplan id: " + d.constructionplan.id)
 
