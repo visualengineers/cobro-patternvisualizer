@@ -1,21 +1,6 @@
 <!DOCTYPE html>
-
-<!-- 
-  Frontend soll die daten vom server bekommen
-      -> d.H. die url bei den Abfragen zu den server urls ändern.
-      -> oben die variable root erstellen und die server adr. da rein packen, damit diese später leichter geändert werden kann
-      -> gucken ob dann die png's oder svg's probleme beim laden haben (wenn das eine nicht geht nehm das andere)
-      -> Der Server kann alle Daten in einer json zusammenfassen (keine 3 json's sondern nur eine komplette laden)
-      -> Der Server hat ne json mit nen Array in dem die ganzen Projekt id's stehen. 
-          -> Also ein Element in die html seite einbauen, mit der man die projekte auswählen kann.
-  
-  Für schönheit sorgen
-      -> mithilfe von js, d3.js, und css die Seite formatieren und gestalten.
--->
-
-<!-- https://medium.freecodecamp.org/learn-d3-js-in-5-minutes-c5ec29fb0725 -->
-
 <link rel="stylesheet" type="text/css" href="Cobro.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 <html>
 <head>
@@ -31,22 +16,21 @@
         <select id="projectlist" onchange="show_project_title()" class="block"></select>
     </div>
 
-    <br />
-<!--hier kommt ein div container hin -->
+    <br/>
 
 <div class="grid-container" id= "container">
 
-<div></div>
+<div class ="headline"></div>
 <div id="title"> <a id="title"></a>  </div>
-<div></div>
+<div class="headline"></div>
 
 <div id="what"> <a id="what"></a> </div>
 <div></div>
 <div id="why"> <a id="why"></a> </div>
 
-<div></div>
-<div id="pic1"> <a id="pic1"></a> </div>
-<div></div>
+<div class="black"></div>
+<div id="pic1" class="img"> <a id="pic1"></a> </div>
+<div class="black"></div>
 
 </div>
 

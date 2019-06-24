@@ -6,8 +6,7 @@ var adr = host + ":" + port + "/data"
 var id = "railwaymap"
 
 
-//http://127.0.0.1:3000/data/blocks/3040601/svg <- bsp um auf die svg's der elemente zuzugreifen.
-
+//http://127.0.0.1:3000/data/blocks/3040601/svg <- navigation example
 
 
 
@@ -36,16 +35,14 @@ function removeElementsByClass(className){
     d3.json(allprojects, function (p){
     console.log(p)
 
-    var newOption = document.createElement("option");
-    newOption.innerHTML = "select ...";
-    document.getElementById('projectlist').options.add(newOption);
-
     for ( title in p)
     {
         var newOption = document.createElement("option");
         newOption.innerHTML = p[title];
         document.getElementById('projectlist').options.add(newOption);
     }
+
+    show_project_title()
     });
 
 
@@ -61,6 +58,7 @@ function load_project_details(projectid){
 
     var url = adr + "/projects/" +projectid;
 
+
     removeElementsByClass('adddiv');
 
     var darray =
@@ -68,8 +66,10 @@ function load_project_details(projectid){
 
         console.log("id: " + d.id)
 
-        console.log("titel: " + d.titel)
-        document.getElementById('title').innerHTML = d.titel
+        var url1 =  host + ":" + port + "/cobro-data/projects/" + d.id + "/pic1.png"
+
+        console.log("title: " + d.title)
+        document.getElementById('title').innerHTML = d.title
 
         console.log("constructionplan id: " + d.constructionplan.id)
 
@@ -84,7 +84,7 @@ function load_project_details(projectid){
                 var div = document.createElement("div");
                     div.className = "adddiv";
                     div.style.background = "white";
-                    div.style.color = "red";
+                    div.style.color = "#B46E6E";
                     div.innerHTML = d.constructionplan.pattern[i].what[ii].name;
 
                  document.getElementById("what").appendChild(div);
@@ -99,7 +99,7 @@ function load_project_details(projectid){
                 var div = document.createElement("div");
                 div.className = "adddiv";
                 div.style.background = "white";
-                div.style.color = "green";
+                div.style.color = "#718E32";
                 div.innerHTML = d.constructionplan.pattern[i].why[iii].name;
 
                 document.getElementById("why").appendChild(div);
@@ -114,11 +114,13 @@ function load_project_details(projectid){
 
 
                 var div = document.createElement("div");
-                    div.className = "adddiv";
+                    div.className = "adddiv adddivhow";
+                    div.id = "how";
                     div.style.background = "white";
                     div.style.color = "blue";
-                    div.innerHTML = d.constructionplan.pattern[i].how[iiii].name;
-
+                   // div.innerHTML = d.constructionplan.pattern[i].how[iiii].name;
+                   var howpicurl = host + ":" + port + "/cobro-data/_assets/icons/icon_" + d.constructionplan.pattern[i].how[iiii].id + ".png";
+                   div.innerHTML = '<img src="' + howpicurl + '" height="60" width="60"/>';
                     document.getElementById("container").appendChild(div);
 
             }
@@ -128,10 +130,11 @@ function load_project_details(projectid){
 
         for (i in d.thumbnail){
             console.log("thumbnail: " + d.thumbnail[i])
-            var imglink = url + "/pic1"
-          //  document.getElementById('pic1').innerHTML = <img src= imglink/>
-            document.getElementById('pic1').innerHTML = '<img src="' + imglink + '.png"/>';
+           // document.getElementById('pic1').innerHTML = '<img src="' + url1 + '" height="189" width="336"/>';
+            document.documentElement.style.setProperty('--thumbnail', 'url("' + url1 + '")');
+
         }
+
         console.log("domain: " + d.domain)
 
         console.log("author: " + d.author)
