@@ -1,6 +1,10 @@
 :root{
     font-family: 'Roboto', sans-serif;
     --thumbnail: url();
+    --how-table-columns-1: 0;
+    --how-table-columns-2: 0;
+    --whatwhy-y-size: 0px;
+    --img-min-Height: 0px;
 }
 
 body{
@@ -15,22 +19,27 @@ h1{
 
 .grid-container
 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
+
     background-color: white;
-    margin: auto;
-    width: 55%;
+    
+    width: 100%;
+    height: 100%;
     text-align: center;
     border-style: solid;
     border-color: #3B5F5B;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    overflow: hidden;
 }
 
 
 .block
 {
     display: block;
-    width: 55.5%;
+    width: 354px;
     border: none;
     background-color: lightgray;
     padding: 14px 0px;
@@ -38,55 +47,110 @@ h1{
     cursor: pointer;
     text-align: center;
     margin: auto;
-   
 }
 
 #title {
-
     background-color: #3B5F5B;
-    text-align: center;
+    text-align: left;
     font-size: 20px;
     color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 100%;
+    height: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    overflow: hidden;
 
 }
 
 .adddiv {
     text-align: center;
-    width: 100px;
+    width: 1fr;
     font-size: 20px;
+    height: 100%;
 }
 
 .adddivhow {
     text-align: center;
-    width: 100px;
+    width: 100%;
     height: 60px;
-    float: center;
-}
-
-.headline{
-    background-color: #3B5F5B;
 }
 
 .img{
-    background-color: black;
-    background-size: cover;
+    background-color: #3B5F5B;
     background-position: center;
     background-image: var(--thumbnail);
-    width: 320px;
-    height: 180px;
+      		/* Set rules to fill background */
+			max-height: 1000px;
+            min-height: var(--img-min-Height);
+            min-width: 100%;
+			
+			/* Set up proportionate scaling */
+			width: 100%;
+            height: auto;
+            zoom: 35%;
+		
 }
 
-.black {
-    background-color: black;
+#what {
+    float: left;
+    padding: 2%;
+    text-align: left;
+    margin-right: 5px;
 }
 
 #why {
+ float: right;
+ padding: 2%;
  text-align: right;
- margin:0px 0px auto auto;
+ margin-left: 5px;
 }
 
 #how {
-    margin: 0px auto auto auto;
     width: 100%;
     height: 100%;
+    border: 2px;
+    border-style: solid;
+    display: table-cell;
+}
+
+#how-wrapper-1 {
+    display: grid;
+    grid-template-columns: repeat(var(--how-table-columns-1), 1fr);
+    margin: auto;
+    text-align: center;
+    height: 15%;
+    overflow: hidden;
+    margin-left: -1px;
+    margin-right: -0px;
+}
+
+#how-wrapper-2 {
+    display: grid;
+    grid-template-columns: repeat(var(--how-table-columns-2), 1fr);
+    text-align: center;
+    height: 20%;
+    width: 99.6%;
+    margin: auto;
+    margin-left: -1px;
+    margin-right: +2px;
+    margin-bottom: -5px;
+    background: white;
+    overflow: hidden;
+}
+
+.wrapper {
+        padding: 20px;
+        resize: both;
+        position: relative;
+        background: white;
+        width: 350px;
+        height: 458px;
+        margin: auto;
+        overflow: hidden;
+}
+
+#whatwhy {
+    
+    margin-bottom: var(--whatwhy-y-size);
 }
